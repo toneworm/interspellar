@@ -31,7 +31,7 @@
     padding: 0;
     text-indent: 0;
     list-style-type: none;
-    max-width: 500px;
+    max-width: 460px;
     margin: auto;
     display: flex;
     justify-content: space-between;

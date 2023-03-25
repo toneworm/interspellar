@@ -2,5 +2,6 @@
 	"/": [
 		"src/routes/+page.ts"
 	],
-	"/character-selection": []
+	"/character-selection": [],
+	"/planets": []
 }

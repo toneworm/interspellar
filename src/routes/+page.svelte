@@ -16,3 +16,9 @@
     <button class="menu-button" on:click="{newGame}">New Game</button>
     <button class="menu-button" on:click="{loadGame}">Load Game</button>
   </div>
+
+<style>
+  button:first-of-type {
+    margin-right: 64px;
+  }
+</style>

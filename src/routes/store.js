@@ -1,7 +1,4 @@
 import {readable, writable} from "svelte/store";
-import {edmundsPlanetSvg} from './planets/edmunds-planet.js';
-import {mannsPlanetSvg} from './planets/manns-planet.js';
-import {millersPlanetSvg} from './planets/millers-planet.js';
 
 export const characters = readable([
     {
@@ -21,15 +18,15 @@ export const characters = readable([
 export const planets = readable([
     {
         name: 'Millers Planet',
-        image: millersPlanetSvg,
+        image: 'ocean_planet.png',
     },
     {
         name: 'Manns Planet',
-        image: mannsPlanetSvg,
+        image: 'frozen_planet.png',
     },
     {
         name: 'Edmunds Planet',
-        image: edmundsPlanetSvg,
+        image: 'rocky_planet.png',
     },
 ]);
 
