@@ -2,31 +2,27 @@
 <script>
     import { onMount } from 'svelte';
     import {goto} from "$app/navigation";
+    import {characters} from "../store.js";
 
     function gotoPlanets() {
       goto('/planets');
     }
 
     onMount(() => {
-      console.log('CharacterSelection component mounted');
     });
+
 </script>
   
   <h1>Character Selection</h1>
   <p>Please choose your character.</p>
+
   <ul>
+  {#each $characters as char}
     <li>
-        <span>Easy</span>
-        <button class="menu-button" on:click="{gotoPlanets}">Amelia</button>
+      <span>{char.difficulty}</span>
+      <button class="menu-button" on:click="{gotoPlanets}">{char.name}</button>
     </li>
-    <li>
-      <span>Normal</span>
-      <button class="menu-button" on:click="{gotoPlanets}">Murph</button>
-    </li>
-    <li>
-      <span>Hard</span>
-      <button class="menu-button" on:click="{gotoPlanets}">Cooper</button>
-    </li>
+  {/each}
   </ul>
 
 <style>
