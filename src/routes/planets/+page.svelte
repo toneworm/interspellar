@@ -38,20 +38,20 @@
     onMount(() => {
     });
 
-    function gotoPlanet() {
-        goto('/planet');
+    function gotoPlanet(name) {
+        $game.currentPlanetInFocus = name;
+        goto(`/planet?planet=${name}`);
     }
 
 </script>
 
 <h1>Planet Selection</h1>
 <p>Choose a planet. All planets must be completed to continue.</p>
-
 <ul>
     {#each $planets as planet}
         <li>
             <p class="planet-name">{planet.name}</p>
-            <a on:click="{gotoPlanet}"><img src="{getPlanetImg(planet.name)}" width="150px" height="150px" alt="planet"></a>
+            <a on:click="{gotoPlanet(planet.name)}"><img src="{getPlanetImg(planet.name)}" width="150px" height="150px" alt="planet"></a>
             <div class="status-container">
                 <span>Status</span>
                 {@html getStatusIcon(planet.name)}
@@ -79,6 +79,8 @@
         align-items: center;
         flex: 0 0 30%;
     }
+
+
 
     .status-container {
         display: flex;

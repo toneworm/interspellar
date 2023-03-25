@@ -19,14 +19,17 @@ export const planets = readable([
     {
         name: 'Millers Planet',
         image: 'ocean_planet.png',
+        description: 'millers description',
     },
     {
         name: 'Manns Planet',
         image: 'frozen_planet.png',
+        description: 'manns description',
     },
     {
         name: 'Edmunds Planet',
         image: 'rocky_planet.png',
+        description: 'edmunds description',
     },
 ]);
 
@@ -43,8 +46,9 @@ export const riddles = readable([
 export const game = writable(
     {
         character: '',
-        planetMillersComplete: true,
+        planetMillersComplete: false,
         planetMannsComplete: false,
         planetEdmundsComplete: false,
+        currentPlanetInFocus: ''
     }
 );

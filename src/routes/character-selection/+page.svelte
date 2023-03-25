@@ -2,9 +2,10 @@
 <script>
     import { onMount } from 'svelte';
     import {goto} from "$app/navigation";
-    import {characters} from "../store.js";
+    import {characters, game} from "../store.js";
 
-    function gotoPlanets() {
+    function gotoPlanets(character) {
+      $game.character = character;
       goto('/planets');
     }
 
@@ -20,7 +21,7 @@
   {#each $characters as char}
     <li>
       <span>{char.difficulty}</span>
-      <button class="menu-button" on:click="{gotoPlanets}">{char.name}</button>
+      <button class="menu-button" on:click="{gotoPlanets(char.name)}">{char.name}</button>
     </li>
   {/each}
   </ul>
