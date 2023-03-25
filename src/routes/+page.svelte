@@ -1,9 +1,9 @@
-<!-- src/routes/index.svelte -->
+<!-- src/routes/+page.svelte -->
 <script>
     import { goto } from '$app/navigation';
   
     function newGame() {
-      goto('/game');
+      goto('/character-selection');
     }
   
     function loadGame() {
