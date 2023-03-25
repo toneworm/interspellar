@@ -1,0 +1,25 @@
+<!-- src/routes/index.svelte -->
+<script>
+    import { goto } from '$app/navigation';
+  
+    function newGame() {
+      goto('/game');
+    }
+  
+    function loadGame() {
+      alert('Load game!');
+    }
+  </script>
+  
+  <style>
+    /* Add your styles here */
+  </style>
+  
+  <main>
+    <div class="menu-container">
+      <h1>Game Menu</h1>
+      <button class="menu-button" on:click="{newGame}">New Game</button>
+      <button class="menu-button" on:click="{loadGame}">Load Game</button>
+    </div>
+  </main>
+  
