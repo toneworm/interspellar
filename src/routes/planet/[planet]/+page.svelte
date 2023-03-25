@@ -1,11 +1,13 @@
 <!-- src/routes/CharacterSelection.svelte -->
 <script>
     import {onMount} from 'svelte';
-    import {planets, game} from "../store.js";
+    import {planets, game} from "@store/store.js";
     import {page} from '$app/stores';
 
+    console.log($page)
+
     function getPlanetFromUrl() {
-        return $page.url.searchParams.get('planet');
+        return $page.params.planet;
     }
 
     function getPlanetDescripton() {

@@ -2,7 +2,7 @@
 <script>
     import { onMount } from 'svelte';
     import {goto} from "$app/navigation";
-    import {characters, game} from "../store.js";
+    import {characters, game} from "@store/store.js";
 
     function gotoPlanets(character) {
       $game.character = character;

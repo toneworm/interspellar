@@ -15,7 +15,7 @@ export const dictionary = {
 		"/": [2],
 		"/character-selection": [3],
 		"/planets": [5],
-		"/planet": [4]
+		"/planet/[planet]": [4]
 	};
 
 export const hooks = {
