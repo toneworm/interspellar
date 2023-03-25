@@ -3,5 +3,6 @@
 		"src/routes/+page.ts"
 	],
 	"/character-selection": [],
-	"/planets": []
+	"/planets": [],
+	"/planet": []
 }
