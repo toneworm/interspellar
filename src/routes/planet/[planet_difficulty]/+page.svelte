@@ -25,18 +25,13 @@
     const planet = getPlanetFromStore(planetName);
     const planetRiddles = getRiddlesForPlanet(planetName);
 
-    function addSuccessHtml(element) {
-        const successHtml = document.createElement('span');
-        successHtml.textContent = 'Correct';
-        element.parentNode.appendChild(successHtml);
-    }
-
-    function handleInput(event) {
-        const input = event.target;
-        if (planetRiddles[input.dataset.index].answer === input.value.toLowerCase()) {
-            $game.riddleComplete[planetName][difficulty][input.dataset.index] = true;
-            addSuccessHtml(input);
-        }
+    function handleSubmit(event) {
+        const data = new FormData(event.target)
+        data.forEach((riddleAnswer, index) => {
+            if (planetRiddles[index].answer === riddleAnswer.toLowerCase()) {
+                $game.riddleComplete[planetName][difficulty][index] = true;
+            }
+        })
     }
 
     onMount(() => {
@@ -48,13 +43,16 @@
 <img src={planet.image} width="150px" height="150px" alt={planet.description} />
 <p>{planet.description}</p>
 
-<form on:submit|preventDefault>
+<form on:submit|preventDefault={handleSubmit}>
 {#each planetRiddles as {text}, index}
     <div class="riddle-container">
         <h2>Riddle {index + 1}</h2>
         <p>{text}</p>
         <label for="answer-{index}">Your answer:</label>
-        <input on:blur={handleInput} type="text" id="answer-{index}" data-index="{index}">
+        <input type="text" id="answer-{index}" name="{index}">
+        {#if successMessaage}
+        <span>Fucking well done</span>
+        {/if}
     </div>
 {/each}
     <button type="submit">Submit</button>

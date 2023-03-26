@@ -53,11 +53,6 @@ export const game = writable({
     "Edmunds Planet": [false, false, false],
     "Manns Planet": [false, false, false],
   },
-  riddlesComplete: {
-    "Millers Planet": [false, false, false],
-    "Edmunds Planet": [false, false, false],
-    "Manns Planet": [false, false, false],
-  },
   riddleComplete: {
     "Millers Planet": [[false, false, false], [false, false, false], [false, false, false]],
     "Edmunds Planet": [[false, false, false], [false, false, false], [false, false, false]],
