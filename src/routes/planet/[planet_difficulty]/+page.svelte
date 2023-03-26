@@ -50,8 +50,8 @@
         <p>{text}</p>
         <label for="answer-{index}">Your answer:</label>
         <input type="text" id="answer-{index}" name="{index}">
-        {#if successMessaage}
-        <span>Fucking well done</span>
+        {#if $game.riddleComplete[planetName][difficulty][index]}
+            <span class="success-message">Fucking well done</span>
         {/if}
     </div>
 {/each}
