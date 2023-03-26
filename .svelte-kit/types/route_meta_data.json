@@ -4,5 +4,5 @@
 	],
 	"/character-selection": [],
 	"/planets": [],
-	"/planet/[planet]": []
+	"/planet/[planet_difficulty]": []
 }

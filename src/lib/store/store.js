@@ -37,23 +37,30 @@ export const riddles = readable([
   {
     text: "I am four letters long, I can be seen in the sky, I am the ocean & I am the sea. Can you guess me?",
     planet: "Millers Planet",
+    answer: "blue"
   },
   {
     text: "Riddle my diddle but dont fiddle yo",
     planet: "Millers Planet",
+    answer: "shiddle"
   },
 ]);
 
 export const game = writable({
   character: "",
   planetComplete: {
-    "Millers Planet": [true, false, false],
-    "Edmunds Planet": [true, true, false],
-    "Manns Planet": [true, false, true],
-  },
-  riddlesComplete: {
-    "Millers Planet": [true, false, false],
+    "Millers Planet": [false, false, false],
     "Edmunds Planet": [false, false, false],
     "Manns Planet": [false, false, false],
   },
+  riddlesComplete: {
+    "Millers Planet": [false, false, false],
+    "Edmunds Planet": [false, false, false],
+    "Manns Planet": [false, false, false],
+  },
+  riddleComplete: {
+    "Millers Planet": [[false, false, false], [false, false, false], [false, false, false]],
+    "Edmunds Planet": [[false, false, false], [false, false, false], [false, false, false]],
+    "Manns Planet": [[false, false, false], [false, false, false], [false, false, false]],
+  }
 });

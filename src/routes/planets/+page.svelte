@@ -20,7 +20,7 @@
   onMount(() => {});
 
   function gotoPlanet(name) {
-    goto(`/planet/${name}`);
+    goto(`/planet/${name}_${DIFFICULTY}`);
   }
 </script>
 
