@@ -4,14 +4,6 @@
     import {planets, riddles, game} from "@store/store.js";
     import {page} from '$app/stores';
 
-    function getPlanetFromUrl() {
-        return $page.params.planet_difficulty.split('_')[0];
-    }
-
-    function getDifficultyFromUrl() {
-        return $page.params.planet_difficulty.split('_')[1];
-    }
-
     function getPlanetFromStore(name) {
         return $planets.filter(planet => planet.name === name)[0]
     }
@@ -20,8 +12,8 @@
         return $riddles.filter(riddle => riddle.planet === name)
     }
 
-    const planetName = getPlanetFromUrl();
-    const difficulty = getDifficultyFromUrl();
+    const planetName = $page.params.planet_difficulty.split('_')[0];
+    const difficulty = $page.params.planet_difficulty.split('_')[1];
     const planet = getPlanetFromStore(planetName);
     const planetRiddles = getRiddlesForPlanet(planetName);
 
