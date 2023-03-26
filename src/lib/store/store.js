@@ -18,7 +18,6 @@ export const characters = readable([
 export const planets = readable([
   {
     name: "Millers Planet",
-
     image: "/src/lib/images/ocean_planet.png",
     description: "millers description",
   },
@@ -57,5 +56,4 @@ export const game = writable({
     "Edmunds Planet": [false, false, false],
     "Manns Planet": [false, false, false],
   },
-  currentPlanetInFocus: "",
 });

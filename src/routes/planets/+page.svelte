@@ -3,7 +3,6 @@
   import { onMount } from "svelte";
   import { planets, game } from "@store/store.js";
   import { goto } from "$app/navigation";
-  import Game from "../Game.svelte";
 
   const DIFFICULTY = 1;
 
@@ -21,7 +20,6 @@
   onMount(() => {});
 
   function gotoPlanet(name) {
-    $game.currentPlanetInFocus = name;
     goto(`/planet/${name}`);
   }
 </script>

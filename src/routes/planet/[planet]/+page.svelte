@@ -1,33 +1,26 @@
 <!-- src/routes/CharacterSelection.svelte -->
 <script>
     import {onMount} from 'svelte';
-    import {planets, game} from "@store/store.js";
+    import {planets} from "@store/store.js";
     import {page} from '$app/stores';
-
-    console.log($page)
 
     function getPlanetFromUrl() {
         return $page.params.planet;
     }
 
-    function getPlanetDescripton() {
-        const planetFromUrl  = getPlanetFromUrl()
-        let description;
-        $planets.forEach(planet => {
-            if (planet.name.includes(planetFromUrl)) {
-                description = planet.description;
-            }
-        })
-        return description;
+    function getPlanetFromStore(name) {
+        return $planets.filter(planet => planet.name === name)[0]
     }
+
+    const planet = getPlanetFromStore(getPlanetFromUrl());
 
     onMount(() => {
     });
 
 </script>
 
-<h1>Planet: {$game.currentPlanetInFocus}</h1>
-<p>{getPlanetDescripton()}</p>
+<h1>Planet: {planet.name}</h1>
+<p>{planet.description}</p>
 
 <style>
 
