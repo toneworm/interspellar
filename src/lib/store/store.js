@@ -19,17 +19,17 @@ export const planets = readable([
   {
     name: "Millers Planet",
     image: "/src/lib/images/ocean_planet.png",
-    description: "millers description",
+    description: "Miller's planet is a water world near a black hole in the film \"Interstellar.\" It has extreme time dilation, where every hour spent on the planet's surface equals seven years passing on Earth. The planet was previously explored by a NASA astronaut named Dr. Miller, who discovered signs of life and sent a beacon signal to Earth before being killed by a massive tidal wave.",
   },
   {
     name: "Manns Planet",
     image: "/src/lib/images/frozen_planet.png",
-    description: "manns description",
+    description: "Mann's planet is a frozen world in \"Interstellar,\" named after Dr. Mann, who betrayed the crew. The planet was initially believed to be a potential new home for humanity but was ultimately found to be inhospitable due to high ammonia levels in the atmosphere.",
   },
   {
     name: "Edmunds Planet",
     image: "/src/lib/images/rocky_planet.png",
-    description: "edmunds description",
+    description: "Edmunds planet is a potentially habitable planet in \"Interstellar\" named after Dr. Edmunds, one of the twelve astronauts who explored it. It was initially believed to be a promising new home for humanity, but it was later revealed to be uninhabitable due to massive tidal waves caused by its proximity to a black hole.",
   },
 ]);
 
