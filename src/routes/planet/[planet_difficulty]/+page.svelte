@@ -1,5 +1,7 @@
 <!-- src/routes/CharacterSelection.svelte -->
 <script>
+  // @ts-nocheck
+
   import { onMount } from "svelte";
   import { planets, riddles, game } from "@store/store.js";
   import { page } from "$app/stores";

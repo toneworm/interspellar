@@ -1,5 +1,7 @@
 <!-- src/routes/CharacterSelection.svelte -->
 <script>
+  // @ts-nocheck
+
   import { onMount } from "svelte";
   import { planets, game } from "@store/store.js";
   import { goto } from "$app/navigation";
@@ -31,9 +33,13 @@
   {#each $planets as { name, image, description }}
     <li class="flex justify-between flex-col items-center grow-0 shrink-0">
       <p class="weight-6 text-5 font-semibold">{name}</p>
-      <a on:click={gotoPlanet(name)}>
-        <img src={image} width="150px" height="150px" alt={description} />
-      </a>
+      <img
+        on:click={gotoPlanet(name)}
+        src={image}
+        width="150px"
+        height="150px"
+        alt={description}
+      />
       <div class="flex flex-col items-center text-3 gap-2">
         <span>Status</span>
         {@html getPlanetComplete(name, DIFFICULTY)}
