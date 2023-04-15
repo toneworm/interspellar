@@ -27,52 +27,17 @@
 
 <h1>Planet Selection</h1>
 <p>Choose a planet. All planets must be completed to continue.</p>
-<ul>
+<ul class="ma p-0 indent-0 list-none flex justify-between max-w-xl">
   {#each $planets as { name, image, description }}
-    <li>
-      <p class="planet-name">{name}</p>
+    <li class="flex justify-between flex-col items-center grow-0 shrink-0">
+      <p class="weight-6 text-5 font-semibold">{name}</p>
       <a on:click={gotoPlanet(name)}>
         <img src={image} width="150px" height="150px" alt={description} />
       </a>
-      <div class="status-container">
+      <div class="flex flex-col items-center text-3 gap-2">
         <span>Status</span>
         {@html getPlanetComplete(name, DIFFICULTY)}
       </div>
     </li>
   {/each}
 </ul>
-
-<style>
-  ul {
-    margin: 0;
-    padding: 0;
-    text-indent: 0;
-    list-style-type: none;
-    max-width: 460px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  li {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 0 30%;
-  }
-
-  .status-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 16px;
-    font-size: 0.875rem;
-    gap: 8px;
-  }
-
-  .planet-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-</style>

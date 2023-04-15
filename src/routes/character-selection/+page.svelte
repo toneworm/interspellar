@@ -1,52 +1,25 @@
 <!-- src/routes/CharacterSelection.svelte -->
 <script>
-    import { onMount } from 'svelte';
-    import {goto} from "$app/navigation";
-    import {characters, game} from "@store/store.js";
+  import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
+  import { characters, game } from "@store/store.js";
 
-    function gotoPlanets(character) {
-      $game.character = character;
-      goto('/planets');
-    }
+  function gotoPlanets(character) {
+    $game.character = character;
+    goto("/planets");
+  }
 
-    onMount(() => {
-    });
-
+  onMount(() => {});
 </script>
-  
-  <h1>Character Selection</h1>
-  <p>Please choose your character.</p>
 
-  <ul>
+<h1>Character Selection</h1>
+<p>Please choose your character.</p>
+
+<ul class="ma p-0 indent-0 list-none flex justify-between max-w-md">
   {#each $characters as char}
-    <li>
-      <span>{char.difficulty}</span>
-      <button class="menu-button" on:click="{gotoPlanets(char.name)}">{char.name}</button>
+    <li class="flex justify-between flex-col">
+      <span class="text-5 font-semibold mb-3">{char.difficulty}</span>
+      <button on:click={gotoPlanets(char.name)}>{char.name}</button>
     </li>
   {/each}
-  </ul>
-
-<style>
-  ul {
-    margin:0;
-    padding: 0;
-    text-indent: 0;
-    list-style-type: none;
-    max-width: 460px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  li {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  span {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-</style>
+</ul>

@@ -1,15 +1,8 @@
 <script>
-  import '../css/main.css';
+  import "../css/main.css";
+  import "uno.css";
 </script>
 
-<main>
+<main class="text-center my0 mxa ma4 max-w-5xl">
   <slot />
 </main>
-
-<style>
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-</style>
