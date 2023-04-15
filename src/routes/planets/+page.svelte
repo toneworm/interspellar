@@ -12,6 +12,7 @@
     '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 100 100"><path d="m6.4 6.4 87.2 87.2" style="fill:none;fill-rule:evenodd;stroke:red;stroke-width:18.05195999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/><path d="M6.4 93.6 93.8 6.4" style="fill:none;fill-rule:evenodd;stroke:red;stroke-width:17.80202103;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/></svg>';
 
   const getPlanetComplete = (name, difficulty) => {
+    console.log($game.planetComplete);
     return $game.planetComplete?.[name]?.[difficulty]
       ? completeStatusIcon
       : incompleteStatusIcon;
@@ -30,9 +31,9 @@
   {#each $planets as { name, image, description }}
     <li>
       <p class="planet-name">{name}</p>
-      <a on:click={gotoPlanet(name)}
-        ><img src={image} width="150px" height="150px" alt={description} /></a
-      >
+      <a on:click={gotoPlanet(name)}>
+        <img src={image} width="150px" height="150px" alt={description} />
+      </a>
       <div class="status-container">
         <span>Status</span>
         {@html getPlanetComplete(name, DIFFICULTY)}

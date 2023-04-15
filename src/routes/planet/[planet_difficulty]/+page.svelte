@@ -3,6 +3,11 @@
     import {onMount} from 'svelte';
     import {planets, riddles, game} from "@store/store.js";
     import {page} from '$app/stores';
+    import {goto} from "$app/navigation";
+
+    function gotoPlanets() {
+        goto('/planets');
+    }
 
     function getPlanetFromStore(name) {
         return $planets.filter(planet => planet.name === name)[0]
@@ -47,6 +52,7 @@
         {/if}
     </div>
 {/each}
+    <button on:click={gotoPlanets}>Back</button>
     <button type="submit">Submit</button>
 </form>
 
@@ -56,9 +62,15 @@
         font-weight: 600;
         text-align: left;
     }
+
     p {
         text-align: left;
     }
+
+    button:first-of-type {
+        margin-right: 16px;
+    }
+
     .riddle-container {
         text-align: left;
         margin-bottom: 32px;
