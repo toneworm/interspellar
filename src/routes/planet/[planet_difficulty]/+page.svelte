@@ -3,7 +3,7 @@
   // @ts-nocheck
 
   import { onMount } from "svelte";
-  import { planets, riddles, game } from "@store/store.js";
+  import { planets, questions, game } from "@store/store.js";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
 
@@ -16,7 +16,7 @@
   }
 
   function getRiddlesForPlanet(name) {
-    return $riddles.filter((riddle) => riddle.planet === name);
+    return $questions.filter((riddle) => riddle.planet === name);
   }
 
   const planetName = $page.params.planet_difficulty.split("_")[0];

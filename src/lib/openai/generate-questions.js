@@ -1,9 +1,11 @@
 import dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
-
-const planets = ["Millers", "Manns", "Edmunds"];
+import * as fs from "fs";
 
 dotenv.config();
+const planets = ["Millers", "Manns", "Edmunds"];
+const questionsMap = new Map();
+const content =
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -15,17 +17,27 @@ async function generateQuestionForPlanet(planetName) {
     const openai = new OpenAIApi(configuration);
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      //   prompt: `Write a quiz question that has a single word answer that is related to the ${planetName} planet in the film Interstellar. Write it in the format of question and answer and make sure the answer output you give is a single word.`,
-      prompt: `write 5 facts about ${planetName} planet in the film Interstellar. Number the facts in your response and be as concise as possible`,
-      max_tokens: 100,
-      temperature: 0,
+      prompt: `Write 5 facts about ${planetName} planet in the film Interstellar. Add a sixth fact but make it a lie. Do not explain that you have lied.`,
+      max_tokens: 150,
+      temperature: 0.8,
     });
-    console.log(response.data.choices);
+    return response.data.choices[0].text?.toString().trim().split("\n");
   } catch (error) {
     console.error(error.response.data.error);
   }
 }
 
-planets.forEach((planet) => {
-  generateQuestionForPlanet(planet);
+const planetPromises = planets.map((planet) => {
+  return generateQuestionForPlanet(planet);
 });
+
+Promise.all(planetPromises).then((values) => {
+  console.log(values);
+  
+});
+
+// fs.writeFile("../store/output.json", content, (err) => {
+//   if (err) {
+//     console.error(err);
+//   }
+// });
